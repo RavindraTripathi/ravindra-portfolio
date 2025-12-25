@@ -1,35 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>Ravindra | Professional Website Developer</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Professional website developer creating modern, fast, and conversion-focused websites.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ravindra – Professional Website Developer creating modern, fast and responsive websites.">
 
 <style>
+/* ================= ROOT ================= */
 :root{
-  --bg:#020617;
-  --bg-soft:#020617;
-  --card:#020617;
-  --border:#1e293b;
+  --bg:#030712;
   --text:#e5e7eb;
-  --muted:#94a3b8;
+  --muted:#9ca3af;
+  --border:rgba(255,255,255,.08);
 
   --blue:#38bdf8;
   --purple:#a78bfa;
+  --cyan:#22d3ee;
   --green:#22c55e;
 }
 
-/* LIGHT THEME */
-.light{
-  --bg:#f8fafc;
-  --bg-soft:#ffffff;
-  --card:#ffffff;
-  --border:#e5e7eb;
-  --text:#020617;
-  --muted:#475569;
-}
-
+/* ================= RESET ================= */
 *{
   margin:0;
   padding:0;
@@ -37,200 +28,200 @@
   font-family:Inter,system-ui,sans-serif;
 }
 body{
-  background:
-    radial-gradient(circle at top left, rgba(56,189,248,.15), transparent 40%),
-    radial-gradient(circle at bottom right, rgba(167,139,250,.15), transparent 40%),
-    var(--bg);
   color:var(--text);
+  background:linear-gradient(-45deg,#020617,#0f172a,#1e1b4b,#020617);
+  background-size:400% 400%;
+  animation:bgMove 15s ease infinite;
   line-height:1.6;
-  transition:.3s;
+}
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 a{text-decoration:none;color:inherit}
 
-/* NAV */
-nav{
-  position:sticky;
-  top:0;
-  z-index:100;
-  backdrop-filter:blur(12px);
-  background:rgba(2,6,23,.75);
-}
-.light nav{background:rgba(255,255,255,.75)}
-.nav{
-  max-width:1100px;
-  margin:auto;
-  padding:16px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.nav h1{font-size:18px;font-weight:700}
-.nav-actions{
-  display:flex;
-  gap:14px;
-}
-.btn{
-  padding:10px 18px;
-  border-radius:8px;
-  font-weight:700;
-  cursor:pointer;
-}
-.primary{
-  background:linear-gradient(135deg,var(--blue),var(--purple));
-  color:#020617;
-}
-.toggle{
-  border:1px solid var(--border);
-  background:transparent;
-  color:var(--text);
-}
-
-/* HERO */
+/* ================= HERO ================= */
 header{
-  min-height:90vh;
+  min-height:95vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   padding:20px;
 }
-header h2{
-  font-size:52px;
-  margin-bottom:15px;
+header h1{
+  font-size:56px;
+  font-weight:800;
+  background:linear-gradient(90deg,var(--blue),var(--purple),var(--cyan));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 header p{
   max-width:760px;
-  margin:auto;
-  color:var(--muted);
+  margin:20px auto;
   font-size:18px;
+  color:var(--muted);
 }
-.hero-actions{
-  margin-top:35px;
-  display:flex;
-  gap:16px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-.hero-actions a{
-  padding:14px 34px;
-  border-radius:10px;
+.hero-btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:16px 42px;
+  border-radius:16px;
   font-weight:800;
-}
-.whatsapp{
-  background:linear-gradient(135deg,#22c55e,#16a34a);
+  background:linear-gradient(135deg,var(--blue),var(--purple));
   color:#020617;
+  box-shadow:0 0 40px rgba(56,189,248,.4);
+  transition:.3s;
+}
+.hero-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 60px rgba(167,139,250,.5);
 }
 
-/* SECTION */
+/* ================= SECTIONS ================= */
 section{
   max-width:1100px;
   margin:auto;
   padding:90px 20px;
 }
-h3{
-  font-size:34px;
-  margin-bottom:14px;
-  position:relative;
+h2{
+  font-size:36px;
+  margin-bottom:20px;
 }
-h3::after{
-  content:"";
-  width:60px;
-  height:4px;
+h2 span{
   background:linear-gradient(90deg,var(--blue),var(--purple));
-  display:block;
-  margin-top:10px;
-  border-radius:4px;
-}
-p{
-  color:var(--muted);
-  max-width:850px;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-/* GRID */
+/* ================= GRID ================= */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:26px;
-  margin-top:45px;
+  gap:28px;
 }
 .card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:16px;
+  position:relative;
   padding:30px;
+  border-radius:20px;
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--border);
+  backdrop-filter:blur(10px);
   transition:.35s;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:20px;
+  padding:1px;
+  background:linear-gradient(135deg,var(--blue),var(--purple),var(--cyan));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  opacity:.25;
 }
 .card:hover{
   transform:translateY(-8px);
-  border-color:var(--purple);
-  box-shadow:0 20px 40px rgba(56,189,248,.15);
+}
+.card:hover::before{
+  opacity:.8;
 }
 
-/* CTA */
-.cta{
-  background:linear-gradient(135deg,var(--blue),var(--purple));
-  color:#020617;
-  border-radius:24px;
-  padding:70px 30px;
+/* ================= PORTFOLIO ================= */
+.portfolio img{
+  width:100%;
+  border-radius:14px;
+  border:1px solid var(--border);
+}
+
+/* ================= TESTIMONIALS ================= */
+.testimonial{
+  display:none;
   text-align:center;
+}
+.testimonial.active{
+  display:block;
+}
+.testimonial p{
+  font-size:18px;
+  max-width:800px;
+  margin:auto;
+}
+.testimonial h4{
+  margin-top:15px;
+  color:var(--blue);
+}
+
+/* ================= CTA ================= */
+.cta{
+  text-align:center;
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  padding:70px 30px;
+  border-radius:28px;
+  color:#020617;
 }
 .cta a{
   display:inline-block;
   margin-top:25px;
   background:#020617;
   color:#fff;
-  padding:16px 40px;
-  border-radius:12px;
+  padding:16px 44px;
+  border-radius:14px;
   font-weight:800;
 }
 
-/* FOOTER */
+/* ================= FLOATING BUTTONS ================= */
+.floating{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.floating a{
+  padding:14px 18px;
+  border-radius:50px;
+  font-weight:700;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+.fiverr{
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  color:#020617;
+}
+.whatsapp{
+  background:linear-gradient(135deg,var(--green),#16a34a);
+  color:#020617;
+}
+
+/* ================= FOOTER ================= */
 footer{
-  border-top:1px solid var(--border);
   text-align:center;
   padding:40px 20px;
   color:var(--muted);
-}
-
-/* ANIMATION */
-.fade{
-  animation:fadeUp .8s ease both;
-}
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:none}
+  border-top:1px solid var(--border);
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="nav">
-    <h1>Ravindra</h1>
-    <div class="nav-actions">
-      <button class="btn toggle" onclick="toggleTheme()">🌗</button>
-      <a class="btn primary" href="https://www.fiverr.com/yourusername" target="_blank">Hire on Fiverr</a>
-    </div>
-  </div>
-</nav>
-
-<header class="fade">
+<header>
   <div>
-    <h2>Hi, I’m Ravindra 👋</h2>
+    <h1>Hi, I’m Ravindra 👋</h1>
     <p>
-      I design and develop modern, fast, and conversion-focused websites
-      that help businesses look professional and grow online.
+      I design and develop modern, fast, and responsive websites
+      for businesses, startups, and freelancers.
     </p>
-    <div class="hero-actions">
-      <a class="primary" href="https://www.fiverr.com/yourusername" target="_blank">Hire Me</a>
-      <a class="whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp</a>
-    </div>
+    <a href="https://www.fiverr.com/yourusername" target="_blank" class="hero-btn">Hire Me</a>
   </div>
 </header>
 
-<section class="fade">
-  <h3>What I Do</h3>
+<section>
+  <h2><span>What I Do</span></h2>
   <div class="grid">
     <div class="card">Business Websites</div>
     <div class="card">Landing Pages</div>
@@ -239,32 +230,52 @@ footer{
   </div>
 </section>
 
-<section class="fade">
-  <h3>Why Choose Me</h3>
+<section class="portfolio">
+  <h2><span>Portfolio</span></h2>
   <div class="grid">
-    <div class="card">✔ Premium UI & UX</div>
-    <div class="card">✔ Mobile-First Design</div>
-    <div class="card">✔ Fast Delivery</div>
-    <div class="card">✔ Clear Communication</div>
+    <div class="card"><img src="https://via.placeholder.com/400x250" alt=""></div>
+    <div class="card"><img src="https://via.placeholder.com/400x250" alt=""></div>
+    <div class="card"><img src="https://via.placeholder.com/400x250" alt=""></div>
   </div>
 </section>
 
-<section class="fade">
-  <div class="cta">
-    <h3>Ready to Build Your Website?</h3>
-    <p>Let’s create something professional and powerful for your business.</p>
-    <a href="https://www.fiverr.com/yourusername" target="_blank">Start Now</a>
+<section>
+  <h2><span>Testimonials</span></h2>
+  <div class="testimonial active">
+    <p>“Ravindra delivered an amazing website. Clean, fast, and very professional.”</p>
+    <h4>— Fiverr Client</h4>
+  </div>
+  <div class="testimonial">
+    <p>“Great communication and excellent design quality. Highly recommended.”</p>
+    <h4>— Startup Founder</h4>
   </div>
 </section>
+
+<section>
+  <div class="cta">
+    <h2>Ready to Start Your Project?</h2>
+    <p>Let’s build something powerful for your business.</p>
+    <a href="https://www.fiverr.com/yourusername" target="_blank">Order on Fiverr</a>
+  </div>
+</section>
+
+<div class="floating">
+  <a class="fiverr" href="https://www.fiverr.com/yourusername" target="_blank">Fiverr</a>
+  <a class="whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp</a>
+</div>
 
 <footer>
   © 2025 Ravindra • Website Developer
 </footer>
 
 <script>
-function toggleTheme(){
-  document.body.classList.toggle("light");
-}
+let i=0;
+const testimonials=document.querySelectorAll(".testimonial");
+setInterval(()=>{
+  testimonials[i].classList.remove("active");
+  i=(i+1)%testimonials.length;
+  testimonials[i].classList.add("active");
+},4000);
 </script>
 
 </body>
