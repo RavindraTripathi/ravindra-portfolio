@@ -8,7 +8,6 @@
 
 <style>
 :root{
-  --bg:#030712;
   --text:#e5e7eb;
   --muted:#9ca3af;
   --border:rgba(255,255,255,.08);
@@ -16,14 +15,15 @@
   --blue:#38bdf8;
   --purple:#a78bfa;
   --cyan:#22d3ee;
-  --green:#22c55e;
 }
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
   font-family:Inter,system-ui,sans-serif;
 }
+
 body{
   color:var(--text);
   background:linear-gradient(-45deg,#020617,#0f172a,#1e1b4b,#020617);
@@ -31,12 +31,14 @@ body{
   animation:bgMove 15s ease infinite;
   line-height:1.6;
 }
+
 @keyframes bgMove{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
-a{text-decoration:none;color:inherit}
+
+a{text-decoration:none}
 
 /* HERO */
 header{
@@ -47,6 +49,7 @@ header{
   text-align:center;
   padding:20px;
 }
+
 header h1{
   font-size:56px;
   font-weight:800;
@@ -54,12 +57,14 @@ header h1{
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
+
 header p{
   max-width:760px;
   margin:20px auto;
   font-size:18px;
   color:var(--muted);
 }
+
 .hero-btn{
   display:inline-block;
   margin-top:30px;
@@ -71,6 +76,7 @@ header p{
   box-shadow:0 0 40px rgba(56,189,248,.4);
   transition:.3s;
 }
+
 .hero-btn:hover{
   transform:translateY(-4px);
   box-shadow:0 0 60px rgba(167,139,250,.6);
@@ -82,10 +88,12 @@ section{
   margin:auto;
   padding:90px 20px;
 }
+
 h2{
   font-size:36px;
   margin-bottom:20px;
 }
+
 h2 span{
   background:linear-gradient(90deg,var(--blue),var(--purple));
   -webkit-background-clip:text;
@@ -98,6 +106,8 @@ h2 span{
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:28px;
 }
+
+/* CARD (FIXED CLICK ISSUE) */
 .card{
   position:relative;
   padding:28px;
@@ -107,6 +117,7 @@ h2 span{
   backdrop-filter:blur(10px);
   transition:.35s;
 }
+
 .card::before{
   content:"";
   position:absolute;
@@ -114,17 +125,19 @@ h2 span{
   border-radius:20px;
   padding:1px;
   background:linear-gradient(135deg,var(--blue),var(--purple),var(--cyan));
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-  opacity:.25;
+  opacity:.35;
+  z-index:0;
+  pointer-events:none; /* 🔥 FIX */
 }
+
+/* ensure content is above overlay */
+.card > *{
+  position:relative;
+  z-index:1;
+}
+
 .card:hover{
   transform:translateY(-10px);
-}
-.card:hover::before{
-  opacity:.9;
 }
 
 /* PORTFOLIO */
@@ -133,17 +146,20 @@ h2 span{
   font-weight:700;
   margin-bottom:10px;
 }
+
 .project-desc{
   font-size:15px;
   color:var(--muted);
   margin-bottom:14px;
 }
+
 .tags{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
   margin-bottom:16px;
 }
+
 .tag{
   font-size:12px;
   padding:4px 10px;
@@ -151,6 +167,8 @@ h2 span{
   background:rgba(56,189,248,.15);
   color:var(--blue);
 }
+
+/* BUTTON (FORCED CLICKABLE) */
 .project-btn{
   display:inline-block;
   padding:12px 20px;
@@ -160,26 +178,11 @@ h2 span{
   color:#020617;
   font-size:14px;
   transition:.3s;
-}
-.project-btn:hover{
-  transform:translateY(-2px);
+  cursor:pointer;
 }
 
-/* TESTIMONIAL */
-.testimonial{
-  text-align:center;
-  max-width:800px;
-  margin:auto;
-}
-.testimonial p{
-  font-size:18px;
-  color:var(--muted);
-}
-.testimonial span{
-  display:block;
-  margin-top:12px;
-  color:var(--blue);
-  font-weight:600;
+.project-btn:hover{
+  transform:translateY(-2px);
 }
 
 /* FOOTER */
@@ -257,17 +260,6 @@ footer{
          rel="noopener noreferrer">View Demo</a>
     </div>
 
-  </div>
-</section>
-
-<section>
-  <h2><span>Testimonials</span></h2>
-  <div class="testimonial">
-    <p>
-      “Great communication and excellent design quality. Ravindra delivered
-      exactly what we needed and exceeded expectations.”
-    </p>
-    <span>— Startup Founder</span>
   </div>
 </section>
 
