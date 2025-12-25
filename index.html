@@ -7,7 +7,6 @@
 <meta name="description" content="Ravindra – Professional Website Developer creating modern, fast and responsive websites.">
 
 <style>
-/* ================= ROOT ================= */
 :root{
   --bg:#030712;
   --text:#e5e7eb;
@@ -19,8 +18,6 @@
   --cyan:#22d3ee;
   --green:#22c55e;
 }
-
-/* ================= RESET ================= */
 *{
   margin:0;
   padding:0;
@@ -41,7 +38,7 @@ body{
 }
 a{text-decoration:none;color:inherit}
 
-/* ================= HERO ================= */
+/* HERO */
 header{
   min-height:95vh;
   display:flex;
@@ -79,7 +76,7 @@ header p{
   box-shadow:0 0 60px rgba(167,139,250,.5);
 }
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 section{
   max-width:1100px;
   margin:auto;
@@ -95,17 +92,17 @@ h2 span{
   -webkit-text-fill-color:transparent;
 }
 
-/* ================= GRID ================= */
+/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:28px;
 }
 .card{
   position:relative;
-  padding:30px;
+  padding:28px;
   border-radius:20px;
-  background:rgba(255,255,255,.03);
+  background:rgba(255,255,255,.04);
   border:1px solid var(--border);
   backdrop-filter:blur(10px);
   transition:.35s;
@@ -130,74 +127,58 @@ h2 span{
   opacity:.8;
 }
 
-/* ================= PORTFOLIO ================= */
-.portfolio img{
-  width:100%;
-  border-radius:14px;
-  border:1px solid var(--border);
+/* PORTFOLIO */
+.project-title{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.project-desc{
+  font-size:15px;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+.tags{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+}
+.tag{
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:20px;
+  background:rgba(56,189,248,.15);
+  color:var(--blue);
+}
+.project-btn{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:10px;
+  font-weight:700;
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  color:#020617;
+  font-size:14px;
 }
 
-/* ================= TESTIMONIALS ================= */
+/* TESTIMONIAL */
 .testimonial{
-  display:none;
   text-align:center;
-}
-.testimonial.active{
-  display:block;
-}
-.testimonial p{
-  font-size:18px;
   max-width:800px;
   margin:auto;
 }
-.testimonial h4{
-  margin-top:15px;
+.testimonial p{
+  font-size:18px;
+  color:var(--muted);
+}
+.testimonial span{
+  display:block;
+  margin-top:12px;
   color:var(--blue);
+  font-weight:600;
 }
 
-/* ================= CTA ================= */
-.cta{
-  text-align:center;
-  background:linear-gradient(135deg,var(--blue),var(--purple));
-  padding:70px 30px;
-  border-radius:28px;
-  color:#020617;
-}
-.cta a{
-  display:inline-block;
-  margin-top:25px;
-  background:#020617;
-  color:#fff;
-  padding:16px 44px;
-  border-radius:14px;
-  font-weight:800;
-}
-
-/* ================= FLOATING BUTTONS ================= */
-.floating{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-.floating a{
-  padding:14px 18px;
-  border-radius:50px;
-  font-weight:700;
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
-}
-.fiverr{
-  background:linear-gradient(135deg,var(--blue),var(--purple));
-  color:#020617;
-}
-.whatsapp{
-  background:linear-gradient(135deg,var(--green),#16a34a);
-  color:#020617;
-}
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
   text-align:center;
   padding:40px 20px;
@@ -230,53 +211,70 @@ footer{
   </div>
 </section>
 
-<section class="portfolio">
+<section>
   <h2><span>Portfolio</span></h2>
   <div class="grid">
-    <div class="card"><img src="https://via.placeholder.com/400x250" alt=""></div>
-    <div class="card"><img src="https://via.placeholder.com/400x250" alt=""></div>
-    <div class="card"><img src="https://via.placeholder.com/400x250" alt=""></div>
+
+    <div class="card">
+      <div class="project-title">Business Website – Tech Startup</div>
+      <div class="project-desc">
+        A modern business website designed for a SaaS startup to showcase services,
+        build trust, and generate leads.
+      </div>
+      <div class="tags">
+        <div class="tag">HTML</div>
+        <div class="tag">CSS</div>
+        <div class="tag">Responsive</div>
+        <div class="tag">SEO</div>
+      </div>
+      <a class="project-btn" href="#" target="_blank">View Demo</a>
+    </div>
+
+    <div class="card">
+      <div class="project-title">High-Converting Landing Page</div>
+      <div class="project-desc">
+        A conversion-focused landing page for a product launch with clear CTA,
+        fast loading speed, and clean UI.
+      </div>
+      <div class="tags">
+        <div class="tag">Landing Page</div>
+        <div class="tag">UI/UX</div>
+        <div class="tag">Performance</div>
+      </div>
+      <a class="project-btn" href="#" target="_blank">View Demo</a>
+    </div>
+
+    <div class="card">
+      <div class="project-title">Website Redesign – Local Business</div>
+      <div class="project-desc">
+        Complete redesign of an outdated website to a modern, mobile-friendly,
+        professional layout.
+      </div>
+      <div class="tags">
+        <div class="tag">Redesign</div>
+        <div class="tag">Mobile-First</div>
+        <div class="tag">Modern UI</div>
+      </div>
+      <a class="project-btn" href="#" target="_blank">View Demo</a>
+    </div>
+
   </div>
 </section>
 
 <section>
   <h2><span>Testimonials</span></h2>
-  <div class="testimonial active">
-    <p>“Ravindra delivered an amazing website. Clean, fast, and very professional.”</p>
-    <h4>— Fiverr Client</h4>
-  </div>
   <div class="testimonial">
-    <p>“Great communication and excellent design quality. Highly recommended.”</p>
-    <h4>— Startup Founder</h4>
+    <p>
+      “Great communication and excellent design quality. Ravindra delivered
+      exactly what we needed and more.”
+    </p>
+    <span>— Startup Founder</span>
   </div>
 </section>
-
-<section>
-  <div class="cta">
-    <h2>Ready to Start Your Project?</h2>
-    <p>Let’s build something powerful for your business.</p>
-    <a href="https://www.fiverr.com/RavindraT" target="_blank">Order on Fiverr</a>
-  </div>
-</section>
-
-<div class="floating">
-  <a class="fiverr" href="https://www.fiverr.com/yourusername" target="_blank">Fiverr</a>
-  <a class="whatsapp" href="https://wa.me/+91 7985381090" target="_blank">WhatsApp</a>
-</div>
 
 <footer>
   © 2025 Ravindra • Website Developer
 </footer>
-
-<script>
-let i=0;
-const testimonials=document.querySelectorAll(".testimonial");
-setInterval(()=>{
-  testimonials[i].classList.remove("active");
-  i=(i+1)%testimonials.length;
-  testimonials[i].classList.add("active");
-},4000);
-</script>
 
 </body>
 </html>
